@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+               viewport-fit=cover">
+
+<title>Happy Birthday </title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100dvh;
+    overflow: hidden;
+
+    font-family: "Poppins", sans-serif;
+
+    color: #fff;
+
+    background: #050014;
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+    --pink: #ff3f91;
+    --pink-light: #ff78b6;
+    --purple: #9c3cff;
+    --gold: #ffc857;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 40, 150, .22),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(130, 40, 255, .22),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255, 50, 150, .18),
+            transparent 40%
+        ),
+
+        #050014;
+}
+
+.background::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        clamp(55px, 8vw, 100px)
+        clamp(55px, 8vw, 100px);
+
+    opacity: .25;
+}
+
+
+/* =====================================================
+   PAGE SYSTEM
+===================================================== */
+
+.page {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    min-height: 100svh;
+
+    padding:
+        max(25px, env(safe-area-inset-top))
+        max(18px, env(safe-area-inset-right))
+        max(25px, env(safe-area-inset-bottom))
+        max(18px, env(safe-area-inset-left));
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.04);
+
+    pointer-events: none;
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        visibility .7s ease;
+}
+
+.page.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+    width: min(900px, 100%);
+
+    max-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+.script,
+.hero-title,
+.page-title,
+.final-title,
+.letter h3,
+.surprise-message h2 {
+    font-family:
+        "Dancing Script",
+        cursive;
+}
+
+.small-title {
+    color: #fff;
+
+    font-size:
+        clamp(.58rem, 1.5vw, .9rem);
+
+    letter-spacing:
+        clamp(2px, 1vw, 8px);
+
+    margin-bottom:
+        clamp(12px, 3vh, 25px);
+}
+
+.hero-title {
+
+    font-size:
+        clamp(
+            4.2rem,
+            15vw,
+            11rem
+        );
+
+    line-height: .78;
+
+    color: #ff4b9b;
+
+    text-shadow:
+        0 0 10px rgba(255,70,150,.9),
+        0 0 35px rgba(255,30,130,.7),
+        0 0 80px rgba(255,30,130,.4);
+
+    animation:
+        glow 2s infinite alternate;
+}
+
+@keyframes glow {
+
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.3);
+    }
+}
+
+.hero-subtitle {
+
+    margin-top:
+        clamp(22px, 4vh, 40px);
+
+    font-size:
+        clamp(
+            1rem,
+            3vw,
+            2rem
+        );
+
+    font-weight: 400;
+}
+
+.hero-subtitle span {
+    color: var(--pink);
+}
+
+.description {
+
+    width: min(650px, 100%);
+
+    margin:
+        clamp(12px, 2vh, 20px)
+        auto
+        clamp(20px, 4vh, 35px);
+
+    color: #d1c9d5;
+
+    line-height: 1.75;
+
+    font-size:
+        clamp(.8rem, 1.8vw, 1rem);
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.next-btn {
+
+    border: none;
+
+    min-height: 50px;
+
+    padding:
+        13px 28px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff287f,
+            #9c3cff
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size:
+        clamp(.8rem, 2vw, 1rem);
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 30px
+        rgba(255,30,130,.4);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.next-btn:hover {
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 0 45px
+        rgba(255,30,130,.65);
+}
+
+.next-btn:active {
+    transform: scale(.97);
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-title {
+
+    width: 100%;
+
+    font-size:
+        clamp(
+            3rem,
+            9vw,
+            6rem
+        );
+
+    line-height: 1;
+
+    color: var(--pink-light);
+
+    text-shadow:
+        0 0 25px
+        rgba(255,50,150,.5);
+
+    margin-bottom:
+        clamp(8px, 2vh, 15px);
+}
+
+.page-subtitle {
+
+    color: #aaa;
+
+    font-size:
+        clamp(.75rem, 2vw, 1rem);
+
+    margin-bottom:
+        clamp(18px, 4vh, 45px);
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter {
+
+    width: min(650px, 100%);
+
+    max-height:
+        min(52vh, 430px);
+
+    overflow-y: auto;
+
+    padding:
+        clamp(22px, 5vw, 40px);
+
+    margin-bottom:
+        clamp(18px, 3vh, 30px);
+
+    text-align: left;
+
+    color: #321427;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff8fb,
+            #ffdce9
+        );
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.4);
+
+    transform: rotate(-1deg);
+
+    scrollbar-width: thin;
+}
+
+.letter h3 {
+
+    color: #d72d72;
+
+    font-size:
+        clamp(
+            1.7rem,
+            5vw,
+            2.4rem
+        );
+
+    margin-bottom: 15px;
+}
+
+.letter p {
+
+    font-size:
+        clamp(.78rem, 2vw, .95rem);
+
+    line-height: 1.8;
+
+    margin-bottom: 12px;
+}
+
+.signature {
+
+    margin-top: 18px;
+
+    color: #ff4b91;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(1.4rem, 4vw, 1.8rem);
+}
+
+
+/* =====================================================
+   CAKE
+===================================================== */
+
+.cake {
+
+    position: relative;
+
+    width:
+        clamp(230px, 55vw, 320px);
+
+    height:
+        clamp(180px, 42vw, 240px);
+
+    margin:
+        clamp(5px, 2vh, 20px)
+        auto
+        clamp(10px, 3vh, 35px);
+
+    flex-shrink: 0;
+}
+
+.cake-base {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 3%;
+
+    width: 94%;
+    height: 52%;
+
+    border-radius:
+        15px 15px 35px 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8f1d50,
+            #ff72ac,
+            #ffafd0,
+            #ff4f91
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(255,30,130,.3);
+}
+
+.cake-top {
+
+    position: absolute;
+
+    left: 1.5%;
+    top: 27%;
+
+    width: 97%;
+    height: 33%;
+
+    border-radius: 50%;
+
+    background: #ff9bc7;
+}
+
+.icing {
+
+    position: absolute;
+
+    left: 6%;
+
+    top: 42%;
+
+    width: 88%;
+
+    height: 21%;
+
+    background: #fff1f8;
+
+    border-radius: 50%;
+}
+
+.candle {
+
+    position: absolute;
+
+    bottom: 50%;
+
+    width:
+        clamp(13px, 4vw, 18px);
+
+    height:
+        clamp(52px, 15vw, 75px);
+
+    border-radius: 5px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            white 0 8px,
+            #ff4d91 8px 16px
+        );
+
+    z-index: 5;
+}
+
+.candle:nth-child(1) {
+    left: 24%;
+}
+
+.candle:nth-child(2) {
+    left: 47%;
+}
+
+.candle:nth-child(3) {
+    left: 71%;
+}
+
+.flame {
+
+    position: absolute;
+
+    width:
+        clamp(15px, 4vw, 20px);
+
+    height:
+        clamp(21px, 5vw, 28px);
+
+    top:
+        clamp(-27px, -6vw, -18px);
+
+    left: -1px;
+
+    border-radius:
+        50% 50% 50% 0;
+
+    transform:
+        rotate(-45deg);
+
+    background: #ffd166;
+
+    box-shadow:
+        0 0 30px #ffae00;
+
+    animation:
+        flame .5s infinite alternate;
+}
+
+.flame.off {
+    opacity: 0;
+}
+
+@keyframes flame {
+
+    to {
+        transform:
+            rotate(-45deg)
+            scale(1.2);
+    }
+}
+
+
+/* =====================================================
+   GIFT
+===================================================== */
+
+.gift {
+
+    position: relative;
+
+    width:
+        clamp(190px, 52vw, 240px);
+
+    height:
+        clamp(180px, 45vw, 220px);
+
+    margin:
+        5px auto
+        clamp(12px, 3vh, 35px);
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+.gift-box {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 6%;
+
+    width: 88%;
+    height: 66%;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2584,
+            #7625d8
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(255,30,130,.4);
+}
+
+.gift-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 39%;
+
+    top: 0;
+
+    width: 22%;
+
+    height: 100%;
+
+    background: #ffc857;
+}
+
+.gift-lid {
+
+    position: absolute;
+
+    z-index: 3;
+
+    width: 100%;
+
+    height: 22%;
+
+    left: 0;
+
+    top: 16%;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4a9d,
+            #9a3cff
+        );
+
+    transition: 1s;
+}
+
+.gift-lid::after {
+
+    content: "🎀";
+
+    position: absolute;
+
+    font-size:
+        clamp(2.8rem, 10vw, 4rem);
+
+    left: 34%;
+
+    top: -100%;
+
+}
+
+.gift.open .gift-lid {
+
+    transform:
+        translateY(-120px)
+        rotate(-12deg);
+}
+
+
+/* =====================================================
+   SURPRISE
+===================================================== */
+
+.surprise-message {
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition: 1s;
+}
+
+.surprise-message.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+.surprise-message h2 {
+
+    font-size:
+        clamp(
+            2.4rem,
+            9vw,
+            4rem
+        );
+
+    color: #ff5ca5;
+}
+
+
+/* =====================================================
+   FINAL PAGE
+===================================================== */
+
+.heart {
+
+    font-size:
+        clamp(3rem, 13vw, 6rem);
+
+    animation:
+        heartbeat 1.4s infinite;
+
+    margin-bottom:
+        clamp(5px, 2vh, 15px);
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.final-title {
+
+    font-size:
+        clamp(
+            3.8rem,
+            12vw,
+            8rem
+        );
+
+    line-height: .9;
+
+    color: #ff5ca5;
+
+    text-shadow:
+        0 0 40px
+        rgba(255,40,150,.7);
+}
+
+.final-text {
+
+    width: min(650px, 100%);
+
+    margin:
+        clamp(15px, 3vh, 25px)
+        auto
+        clamp(18px, 4vh, 35px);
+
+    color: #ccc;
+
+    font-size:
+        clamp(.75rem, 2vw, 1rem);
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   BALLOONS
+===================================================== */
+
+.balloon {
+
+    position: absolute;
+
+    width:
+        clamp(50px, 10vw, 80px);
+
+    height:
+        clamp(65px, 13vw, 100px);
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    opacity: .6;
+
+    pointer-events: none;
+
+    animation:
+        float 5s ease-in-out infinite;
+}
+
+.balloon::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+
+    height:
+        clamp(70px, 15vw, 120px);
+
+    background:
+        rgba(255,255,255,.3);
+
+    left: 50%;
+
+    bottom: -100%;
+}
+
+.balloon-1 {
+    left: 3%;
+    top: 18%;
+    background: #ff3f91;
+}
+
+.balloon-2 {
+    right: 3%;
+    top: 15%;
+    background: #8d45ff;
+    animation-delay: 1s;
+}
+
+.balloon-3 {
+    left: 5%;
+    bottom: 10%;
+    background: #367cff;
+    animation-delay: 2s;
+}
+
+.balloon-4 {
+    right: 6%;
+    bottom: 10%;
+    background: #ff5bba;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(4deg);
+    }
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti {
+
+    position: fixed;
+
+    top: -30px;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    animation:
+        fall linear forwards;
+}
+
+@keyframes fall {
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   SMALL HEIGHT DEVICES
+===================================================== */
+
+@media (max-height: 650px) {
+
+    .page {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .hero-title {
+        font-size:
+            clamp(3.5rem, 15vh, 6rem);
+    }
+
+    .hero-subtitle {
+        margin-top: 15px;
+    }
+
+    .description {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .page-title {
+        font-size:
+            clamp(2.8rem, 10vh, 4rem);
+    }
+
+    .page-subtitle {
+        margin-bottom: 12px;
+    }
+
+    .cake {
+        height: 170px;
+        width: 225px;
+        margin-bottom: 10px;
+    }
+
+    .gift {
+        width: 180px;
+        height: 165px;
+        margin-bottom: 10px;
+    }
+
+    .letter {
+        max-height: 43vh;
+        padding: 20px;
+    }
+
+    .final-text {
+        margin-top: 12px;
+        margin-bottom: 15px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .hero-title {
+        font-size:
+            clamp(
+                4rem,
+                20vw,
+                6rem
+            );
+    }
+
+    .small-title {
+        white-space: nowrap;
+    }
+
+    .hero-subtitle {
+        line-height: 1.4;
+    }
+
+    .description {
+        max-width: 340px;
+    }
+
+    .letter {
+        width: 94%;
+        max-height: 48vh;
+        transform: rotate(0);
+    }
+
+    .letter p {
+        line-height: 1.65;
+    }
+
+    .balloon-1 {
+        left: -15px;
+    }
+
+    .balloon-2 {
+        right: -15px;
+    }
+
+    .balloon-3,
+    .balloon-4 {
+        display: none;
+    }
+
+    .next-btn {
+        min-width: 190px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .hero-title {
+        font-size: 3.7rem;
+    }
+
+    .page-title {
+        font-size: 2.9rem;
+    }
+
+    .hero-subtitle {
+        font-size: .95rem;
+    }
+
+    .description {
+        font-size: .75rem;
+        line-height: 1.6;
+    }
+
+    .letter {
+        max-height: 44vh;
+        padding: 18px;
+    }
+
+    .letter h3 {
+        font-size: 1.7rem;
+    }
+
+    .letter p {
+        font-size: .74rem;
+    }
+
+    .cake {
+        width: 210px;
+        height: 165px;
+    }
+
+    .gift {
+        width: 175px;
+        height: 160px;
+    }
+}
+
+
+/* =====================================================
+   LANDSCAPE PHONES
+===================================================== */
+
+@media
+(max-height: 500px)
+and (orientation: landscape) {
+
+    .page {
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    .hero-subtitle {
+        margin-top: 15px;
+    }
+
+    .description {
+        margin: 10px auto 15px;
+    }
+
+    .letter {
+        max-height: 50vh;
+    }
+
+    .cake {
+        width: 190px;
+        height: 140px;
+    }
+
+    .gift {
+        width: 160px;
+        height: 140px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="background"></div>
+
+
+<!-- =====================================================
+     PAGE 1
+===================================================== -->
+
+<section class="page active" id="page1">
+
+    <div class="balloon balloon-1"></div>
+    <div class="balloon balloon-2"></div>
+    <div class="balloon balloon-3"></div>
+    <div class="balloon balloon-4"></div>
+
+
+    <div class="content">
+
+        <div class="small-title">
+            ✦ TODAY IS YOUR SPECIAL DAY ✦
+        </div>
+
+        <h1 class="hero-title">
+            Happy<br>
+            Birthday!
+        </h1>
+
+        <!-- CHANGE NAME HERE -->
+
+        <h2 class="hero-subtitle">
+            To
+            <span>
+                Dear ASMA
+            </span>
+        </h2>
+
+        <p class="description">
+            Today is all about you!
+            A little surprise has been prepared
+            especially for you.
+        </p>
+
+        <button
+            class="next-btn"
+            onclick="nextPage(2)">
+
+            Let's Celebrate 🎉
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 2
+===================================================== -->
+
+<section class="page" id="page2">
+
+    <div class="content">
+
+        <h1 class="page-title">
+            A Little Message
+        </h1>
+
+        <p class="page-subtitle">
+            Something I wanted you to know... ❤️
+        </p>
+
+
+        <div class="letter">
+
+            <h3>
+                Just a little note for you...
+            </h3>
+
+            <p>
+                Happy Birthday to one of the most
+                amazing people I know! ❤️
+            </p>
+
+            <p>
+                May this new year of your life bring
+                you endless happiness, beautiful
+                moments, success and everything
+                your heart wishes for.
+            </p>
+
+            <p>
+                Never stop smiling.
+                Never stop dreaming.
+                And never forget how special
+                you truly are.
+            </p>
+
+            <div class="signature">
+                With lots of love ♥
+            </div>
+
+        </div>
+
+
+        <button
+            class="next-btn"
+            onclick="nextPage(3)">
+
+            Next → 🎂
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 3
+===================================================== -->
+
+<section class="page" id="page3">
+
+    <div class="content">
+
+        <h1 class="page-title">
+            Your Birthday Cake
+        </h1>
+
+        <p class="page-subtitle">
+            Close your eyes and make a wish... ✨
+        </p>
+
+
+        <div class="cake">
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="cake-top"></div>
+
+            <div class="icing"></div>
+
+            <div class="cake-base"></div>
+
+        </div>
+
+
+        <button
+            class="next-btn"
+            onclick="blowCandles()">
+
+            Blow Out the Candles 🕯️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 4
+===================================================== -->
+
+<section class="page" id="page4">
+
+    <div class="content">
+
+        <h1 class="page-title">
+            One More Surprise...
+        </h1>
+
+        <p class="page-subtitle">
+            I saved something special for you. 🎁
+        </p>
+
+
+        <div
+            class="gift"
+            id="gift"
+            onclick="openGift()">
+
+            <div class="gift-lid"></div>
+
+            <div class="gift-box"></div>
+
+        </div>
+
+
+        <button
+            class="next-btn"
+            onclick="openGift()">
+
+            Open Your Gift 🎁
+
+        </button>
+
+
+        <div
+            class="surprise-message"
+            id="surpriseMessage">
+
+            <h2>
+                You're Amazing! ❤️
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 5
+===================================================== -->
+
+<section class="page" id="page5">
+
+    <div class="content">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h1 class="final-title">
+            Happy Birthday!
+        </h1>
+
+        <p class="final-text">
+
+            May your life always be filled with
+            happiness, laughter, love and beautiful
+            moments.
+
+            <br><br>
+
+            May all your dreams come true,
+            and may this be your best year yet.
+
+            <br><br>
+
+            Keep smiling. Keep shining.
+            You deserve the world. ✨
+
+        </p>
+
+
+        <button
+            class="next-btn"
+            onclick="celebrateAgain()">
+
+            Celebrate Again 🎉
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function nextPage(number) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+
+    const next =
+        document.getElementById(
+            "page" + number
+        );
+
+
+    if (next) {
+
+        next.classList.add("active");
+
+    }
+
+
+    createConfetti(30);
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+const emojis = [
+    "🎉",
+    "🎊",
+    "✨",
+    "💖",
+    "❤️",
+    "🎈",
+    "⭐",
+    "🥳"
+];
+
+
+function createConfetti(amount = 50) {
+
+    for (
+        let i = 0;
+        i < amount;
+        i++
+    ) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.className =
+            "confetti";
+
+        piece.innerText =
+            emojis[
+                Math.floor(
+                    Math.random()
+                    * emojis.length
+                )
+            ];
+
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+
+        piece.style.fontSize =
+            (12 + Math.random() * 18)
+            + "px";
+
+
+        piece.style.animationDuration =
+            (2 + Math.random() * 3)
+            + "s";
+
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(
+            () => piece.remove(),
+            6000
+        );
+
+    }
+}
+
+
+/* =====================================================
+   CAKE
+===================================================== */
+
+function blowCandles() {
+
+    document
+        .querySelectorAll(".flame")
+        .forEach(flame => {
+
+            flame.classList.add("off");
+
+        });
+
+
+    createConfetti(120);
+
+
+    setTimeout(() => {
+
+        nextPage(4);
+
+    }, 1600);
+}
+
+
+/* =====================================================
+   GIFT
+===================================================== */
+
+let giftOpened = false;
+
+
+function openGift() {
+
+    if (giftOpened) {
+        return;
+    }
+
+
+    giftOpened = true;
+
+
+    const gift =
+        document.getElementById("gift");
+
+
+    const message =
+        document.getElementById(
+            "surpriseMessage"
+        );
+
+
+    gift.classList.add("open");
+
+
+    createConfetti(150);
+
+
+    setTimeout(() => {
+
+        message.classList.add("show");
+
+    }, 500);
+
+
+    setTimeout(() => {
+
+        nextPage(5);
+
+    }, 2800);
+}
+
+
+/* =====================================================
+   CELEBRATE AGAIN
+===================================================== */
+
+function celebrateAgain() {
+
+    createConfetti(180);
+
+
+    setTimeout(() => {
+
+        nextPage(1);
+
+    }, 600);
+}
+
+
+/* =====================================================
+   INITIAL CONFETTI
+===================================================== */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            () => createConfetti(50),
+            800
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
